@@ -1,5 +1,7 @@
 package org.example.p87377;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Main {
@@ -35,6 +37,23 @@ class Solution {
         if(y != (long) y) return null;
 
         return Point.of(x, y);
+    }
+
+    public List<Point> intersections(int[][] line) {
+        List<Point> points = new ArrayList<>();
+
+        for(int i=0; i<line.length; i++) {
+            for(int j=i+1; j<line.length; j++) {
+                int[] line1 = line[i];
+                int[] line2 = line[j];
+
+                Point point = intersection(line1, line2);
+
+                if(point != null) points.add(point);
+            }
+        }
+
+        return points;
     }
 }
 

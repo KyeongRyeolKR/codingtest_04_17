@@ -3,6 +3,8 @@ package org.example.p87377;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class Tests {
@@ -40,5 +42,12 @@ public class Tests {
     void t1_5() {
         assertThat(new Solution().intersection(new int[]{0, 1, -1}, new int[]{1, 0, 1}))
                 .isEqualTo(Point.of(-1, 1));
+    }
+
+    @Test
+    @DisplayName("교점들 : [[1, -1, 0], [2, -1, 0]]")
+    void t2() {
+        assertThat(new Solution().intersections(new int[][]{{0, 1, -1},{1, 0, 1}}))
+                .isEqualTo(List.of(Point.of(-1, 1)));
     }
 }
