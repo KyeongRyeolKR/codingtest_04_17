@@ -72,4 +72,44 @@ public class Tests {
         assertThat(new Solution().intersections(new int[][]{{2, -1, 4}, {-2, -1, 4}, {0, -1, 1}, {5, -8, -12}, {5, 8, 12}}))
                 .isEqualTo(Set.of(Point.of(4, 1), Point.of(4, -4), Point.of(-4, -4), Point.of(-4, 1), Point.of(0, 4)));
     }
+
+    @Test
+    @DisplayName("minPoint, [Point.of(1, 1), Point.of(-1, 1)]")
+    void t3() {
+        assertThat(
+                new Solution().getMinPoint(Set.of(Point.of(1, 1), Point.of(-1, 1)))
+        ).isEqualTo(
+                Point.of(-1, 1)
+        );
+    }
+
+    @Test
+    @DisplayName("minPoint, [Point.of(-5, 1), Point.of(-1, -7)]")
+    void t3_2() {
+        assertThat(
+                new Solution().getMinPoint(Set.of(Point.of(-5, 1), Point.of(-1, -7)))
+        ).isEqualTo(
+                Point.of(-5, -7)
+        );
+    }
+
+    @Test
+    @DisplayName("maxPoint, [Point.of(1, 1), Point.of(-1, 1)]")
+    void t4() {
+        assertThat(
+                new Solution().getMaxPoint(Set.of(Point.of(1, 1), Point.of(-1, 1)))
+        ).isEqualTo(
+                Point.of(1, 1)
+        );
+    }
+
+    @Test
+    @DisplayName("maxPoint, [Point.of(4, 1), Point.of(-1, 6)]")
+    void t4_2() {
+        assertThat(
+                new Solution().getMaxPoint(Set.of(Point.of(4, 1), Point.of(-1, 6)))
+        ).isEqualTo(
+                Point.of(4, 6)
+        );
+    }
 }
