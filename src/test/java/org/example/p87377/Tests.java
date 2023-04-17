@@ -149,4 +149,24 @@ public class Tests {
                 }
         );
     }
+
+    @Test
+    @DisplayName("positivePoints, [Point.of(1, 1), Point.of(-1, 1)]")
+    void t6() {
+        assertThat(
+                new Solution().positivePoints(Set.of(Point.of(1, 1), Point.of(-1, 1)))
+        ).isEqualTo(
+                Set.of(Point.of(2, 0), Point.of(0, 0))
+        );
+    }
+
+    @Test
+    @DisplayName("positivePoints, [Point.of(4, -7), Point.of(-1, 6)]")
+    void t6_2() {
+        assertThat(
+                new Solution().positivePoints(Set.of(Point.of(4, -7), Point.of(-1, 6)))
+        ).isEqualTo(
+                Set.of(Point.of(5, 0), Point.of(0, 13))
+        );
+    }
 }
