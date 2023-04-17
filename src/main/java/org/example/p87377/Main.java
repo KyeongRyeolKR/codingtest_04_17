@@ -1,8 +1,6 @@
 package org.example.p87377;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class Main {
 }
@@ -39,8 +37,8 @@ class Solution {
         return Point.of(x, y);
     }
 
-    public List<Point> intersections(int[][] line) {
-        List<Point> points = new ArrayList<>();
+    public Set<Point> intersections(int[][] line) {
+        Set<Point> points = new HashSet<>();
 
         for(int i=0; i<line.length; i++) {
             for(int j=i+1; j<line.length; j++) {
