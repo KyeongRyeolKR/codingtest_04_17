@@ -112,4 +112,41 @@ public class Tests {
                 Point.of(4, 6)
         );
     }
+
+    @Test
+    @DisplayName("emptyMatrix, [Point.of(1, 1), Point.of(-1, 1)]")
+    void t5() {
+        assertThat(
+                new Solution().emptyMatrix(Set.of(Point.of(1, 1), Point.of(-1, 1)))
+        ).isEqualTo(
+                new char[][]{
+                        {'.', '.', '.'}
+                }
+        );
+    }
+
+    @Test
+    @DisplayName("emptyMatrix, [Point.of(4, -7), Point.of(-1, 6)]")
+    void t5_2() {
+        assertThat(
+                new Solution().emptyMatrix(Set.of(Point.of(4, -7), Point.of(-1, 6)))
+        ).isEqualTo(
+                new char[][]{
+                        {'.', '.', '.', '.', '.', '.'},
+                        {'.', '.', '.', '.', '.', '.'},
+                        {'.', '.', '.', '.', '.', '.'},
+                        {'.', '.', '.', '.', '.', '.'},
+                        {'.', '.', '.', '.', '.', '.'},
+                        {'.', '.', '.', '.', '.', '.'},
+                        {'.', '.', '.', '.', '.', '.'},
+                        {'.', '.', '.', '.', '.', '.'},
+                        {'.', '.', '.', '.', '.', '.'},
+                        {'.', '.', '.', '.', '.', '.'},
+                        {'.', '.', '.', '.', '.', '.'},
+                        {'.', '.', '.', '.', '.', '.'},
+                        {'.', '.', '.', '.', '.', '.'},
+                        {'.', '.', '.', '.', '.', '.'}
+                }
+        );
+    }
 }
