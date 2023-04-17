@@ -99,6 +99,15 @@ class Solution {
                 .map(p -> Point.of(p.x - minPoint.x, p.y - minPoint.y))
                 .collect(Collectors.toSet());
     }
+
+    public char[][] transformToMatrix(Set<Point> points) {
+        char[][] matrix = emptyMatrix(points);
+        points = positivePoints(points);
+
+        points.forEach(p -> matrix[(int) p.y][(int) p.x] = '*');
+
+        return matrix;
+    }
 }
 
 class Point {

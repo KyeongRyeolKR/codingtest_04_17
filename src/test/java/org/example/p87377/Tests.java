@@ -169,4 +169,41 @@ public class Tests {
                 Set.of(Point.of(5, 0), Point.of(0, 13))
         );
     }
+
+    @Test
+    @DisplayName("transformToMatrix, [Point.of(1, 1), Point.of(-1, 1)]")
+    void t7() {
+        assertThat(
+                new Solution().transformToMatrix(Set.of(Point.of(1, 1), Point.of(-1, 1)))
+        ).isEqualTo(
+                new char[][]{
+                        {'*', '.', '*'}
+                }
+        );
+    }
+
+    @Test
+    @DisplayName("transformToMatrix, [Point.of(4, -7), Point.of(-1, 6)]")
+    void t7_2() {
+        assertThat(
+                new Solution().transformToMatrix(Set.of(Point.of(4, -7), Point.of(-1, 6)))
+        ).isEqualTo(
+                new char[][]{
+                        {'.', '.', '.', '.', '.', '*'},
+                        {'.', '.', '.', '.', '.', '.'},
+                        {'.', '.', '.', '.', '.', '.'},
+                        {'.', '.', '.', '.', '.', '.'},
+                        {'.', '.', '.', '.', '.', '.'},
+                        {'.', '.', '.', '.', '.', '.'},
+                        {'.', '.', '.', '.', '.', '.'},
+                        {'.', '.', '.', '.', '.', '.'},
+                        {'.', '.', '.', '.', '.', '.'},
+                        {'.', '.', '.', '.', '.', '.'},
+                        {'.', '.', '.', '.', '.', '.'},
+                        {'.', '.', '.', '.', '.', '.'},
+                        {'.', '.', '.', '.', '.', '.'},
+                        {'*', '.', '.', '.', '.', '.'}
+                }
+        );
+    }
 }
