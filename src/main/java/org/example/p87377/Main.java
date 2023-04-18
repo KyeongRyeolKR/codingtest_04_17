@@ -72,19 +72,9 @@ class Solution {
         return matrix;
     }
 
-    public Points positivePoints(Points points) {
-        Point minPoint = points.getMinPoint();
-
-        return Points.of(
-                points.stream()
-                        .map(p -> Point.of(p.x - minPoint.x, p.y - minPoint.y))
-                        .toArray(Point[]::new)
-        );
-    }
-
     public char[][] transformToMatrix(Points points) {
         char[][] matrix = emptyMatrix(points);
-        points = positivePoints(points);
+        points = points.positivePoints();
 
         points.forEach(p -> matrix[(int) p.y][(int) p.x] = '*');
 
@@ -201,6 +191,16 @@ class Points implements Iterable<Point> {
         }
 
         return Point.of(x, y);
+    }
+
+    public Points positivePoints() {
+        Point minPoint = getMinPoint();
+
+        return Points.of(
+                data.stream()
+                        .map(p -> Point.of(p.x - minPoint.x, p.y - minPoint.y))
+                        .toArray(Point[]::new)
+        );
     }
 }
 
