@@ -1,6 +1,9 @@
 package org.example.p87377;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -25,7 +28,7 @@ class Solution {
         double divisor = A * D - B * C;
 
         // 분모가 0일 경우, 평행이여서 교점이 없다.
-        if(divisor == 0) {
+        if (divisor == 0) {
             return null;
         }
 
@@ -33,8 +36,8 @@ class Solution {
         double y = (E * C - A * F) / divisor;
 
         // 정수인지 아닌지 판별
-        if(x != (long) x) return null;
-        if(y != (long) y) return null;
+        if (x != (long) x) return null;
+        if (y != (long) y) return null;
 
         return Point.of(x, y);
     }
@@ -42,14 +45,14 @@ class Solution {
     public Set<Point> intersections(int[][] line) {
         Set<Point> points = new HashSet<>();
 
-        for(int i=0; i<line.length; i++) {
-            for(int j=i+1; j<line.length; j++) {
+        for (int i = 0; i < line.length; i++) {
+            for (int j = i + 1; j < line.length; j++) {
                 int[] line1 = line[i];
                 int[] line2 = line[j];
 
                 Point point = intersection(line1, line2);
 
-                if(point != null) points.add(point);
+                if (point != null) points.add(point);
             }
         }
 
@@ -60,7 +63,7 @@ class Solution {
         long x = Long.MAX_VALUE;
         long y = Long.MAX_VALUE;
 
-        for(Point point : points) {
+        for (Point point : points) {
             x = Math.min(x, point.x);
             y = Math.min(y, point.y);
         }
@@ -72,7 +75,7 @@ class Solution {
         long x = Long.MIN_VALUE;
         long y = Long.MIN_VALUE;
 
-        for(Point point : points) {
+        for (Point point : points) {
             x = Math.max(x, point.x);
             y = Math.max(y, point.y);
         }
