@@ -10,42 +10,27 @@ class Solution {
 }
 
 class Hanoi {
-    private final int FROM;
-    private final int TO;
-    private final int N;
     private final List<int[]> paths = new ArrayList<>();
 
     public Hanoi(int from, int to, int n) {
-        this.FROM = from;
-        this.TO = to;
-        this.N = n;
-
-        calculate();
+        calculate(from, to, n);
     }
 
-    private void calculate() {
-        if (N == 1) addPath(1, 3);
-        if (N == 2 && FROM == 1 && TO == 2) {
-            addPath(1, 3);
-            addPath(1, 2);
-            addPath(3, 2);
+    // from : 시작점
+    // to : 목적지
+    // n : 옮길 원판 개수
+    // empty : from 도 아니고 to 도 아닌 기둥 번호
+    private void calculate(int from, int to, int n) {
+        if (n == 1) {
+            addPath(from, to);
+            return;
         }
-        if (N == 2 && FROM == 1 && TO == 3) {
-            addPath(1, 2);
-            addPath(1, 3);
-            addPath(2, 3);
-        }
-        if (N == 2 && FROM == 2 && TO == 1) {
-            addPath(2, 3);
-            addPath(2, 1);
-            addPath(3, 1);
-        }
-        if (N == 2 && FROM == 2 && TO == 3) {
-        }
-        if (N == 2 && FROM == 3 && TO == 1) {
-        }
-        if (N == 2 && FROM == 3 && TO == 2) {
-        }
+
+        int empty = 6 - from - to;
+
+        calculate(from, empty, n - 1);
+        calculate(from, to, 1);
+        calculate(empty, to, n - 1);
     }
 
     private void addPath(int from, int to) {
