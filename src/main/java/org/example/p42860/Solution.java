@@ -13,7 +13,9 @@ class Solution {
         for (int i = 0; i < name.length(); i++) {
             char c = name.charAt(i);
 
-            int diff = c - 'A';
+            int diff1 = c - 'A';
+            int diff2 = 'Z' - c + 1;
+            int diff = Math.min(diff1, diff2);
 
             nameCost += diff;
         }
