@@ -35,4 +35,14 @@ public class SolutionTest {
                 new Solution().solution(3, new int[]{3}, new int[]{1})
         ).isEqualTo(2);
     }
+
+    // 5, [1, 2, 3, 4, 5], [1, 2, 3, 4, 5]
+
+    @Test
+    @DisplayName("5, [1, 2, 3, 4, 5], [1, 2, 3, 4, 5] → 5")
+    void t4() {
+        assertThat(
+                new Solution().solution(5, new int[]{1, 2, 3, 4, 5}, new int[]{1, 2, 3, 4, 5})
+        ).isEqualTo(5);
+    }
 }
